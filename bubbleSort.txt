@@ -1,0 +1,39 @@
+package bubblesort;
+
+public class BubbleSort {
+    public static void bubbleSortDesc(Object[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (isNumeric(arr[j]) && isNumeric(arr[j + 1])) {
+                    double value1 = Double.parseDouble(arr[j].toString());
+                    double value2 = Double.parseDouble(arr[j + 1].toString());
+                    if (value1 < value2) {
+                        Object temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+        }
+    }
+
+    private static boolean isNumeric(Object obj) {
+        return obj instanceof Number;
+    }
+
+    public static void main(String[] args) {
+        Object[] arr = {122, 
+            233, 152, 11.0, -28, 1423, 217, 31212, "Ola", true,false, true, 123.7, 14.5f};
+
+        bubbleSortDesc(arr);
+
+        System.out.print("Array ordenado: ");
+        for (Object value : arr) {
+            System.out.print(value + " ");
+        }
+    }
+}
+
+
+    
